@@ -8,5 +8,13 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react", 
+  webpackFinal: async (config, { configType }) => {
+    config.resolve.alias['react-native$'] = 'react-native-web'
+
+    return config
+  },
+  typescript: {
+    check: true,
+  }
 }
